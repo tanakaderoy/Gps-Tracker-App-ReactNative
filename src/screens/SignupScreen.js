@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
 import Spacer from "../components/Spacer";
@@ -8,13 +8,7 @@ import NavLink from "../components/NavLink";
 import { NavigationEvents } from "react-navigation";
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup, clearErrorMessage, tryLocalSignin } = useContext(
-    AuthContext
-  );
-
-  useEffect(() => {
-    tryLocalSignin();
-  }, []);
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
   const gotoSignin = () => {
     navigation.navigate("Signin");
